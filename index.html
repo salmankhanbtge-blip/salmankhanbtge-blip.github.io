@@ -3,102 +3,171 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Salman Khan — Junior Researcher, Biotechnology</title>
-<meta name="description" content="Salman Khan — Junior Researcher in Agricultural Biotechnology and Microbial Genomics at Islamic University, Kushtia, Bangladesh." />
+<title>Salman Khan | Cinematic Researcher</title>
+<meta name="description" content="Salman Khan — Junior Researcher in Agricultural Biotechnology and Microbial Genomics." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --bg:#ffffff;
-    --ink:#14211b;
-    --muted:#5b6b63;
-    --accent:#1f6b4a;
-    --accent-soft:#e8f3ed;
-    --line:#e3e9e5;
-    --card:#fafcfb;
-    --max:880px;
+  /* --- CINEMATIC DARK MODE VARIABLES --- */
+  :root {
+    --bg: #060b09;
+    --surface: #0d1713;
+    --ink: #e2e8e5;
+    --muted: #8ca396;
+    --neon: #00ff88; 
+    --cyan: #00d2ff;
+    --line: #1c2e26;
+    --glow: 0 0 20px rgba(0, 255, 136, 0.15);
   }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{
-    font-family:'Inter',system-ui,-apple-system,sans-serif;
-    color:var(--ink);
-    background:var(--bg);
-    line-height:1.65;
-    font-size:16px;
-    -webkit-font-smoothing:antialiased;
+  
+  *{box-sizing:border-box; margin:0; padding:0; cursor: crosshair;}
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    /* Subtle grid background */
+    background-image: 
+      linear-gradient(rgba(0, 255, 136, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 255, 136, 0.03) 1px, transparent 1px);
+    background-size: 30px 30px;
   }
-  a{color:var(--accent);text-decoration:none}
-  a:hover{text-decoration:underline}
-  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
 
-  /* Header / nav */
-  header{
-    position:sticky;top:0;z-index:10;
-    background:rgba(255,255,255,.92);
-    backdrop-filter:blur(8px);
-    border-bottom:1px solid var(--line);
+  a { color: var(--cyan); text-decoration: none; transition: 0.3s; }
+  a:hover { color: var(--neon); text-shadow: 0 0 8px rgba(0,255,136,0.5); }
+  
+  .wrap { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+
+  /* --- NAV --- */
+  header {
+    position: fixed; top: 0; left: 0; width: 100%; z-index: 100;
+    background: rgba(6, 11, 9, 0.7); backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
   }
-  nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0;flex-wrap:wrap;gap:8px}
-  .brand{font-family:'Source Serif 4',serif;font-weight:700;font-size:1.05rem}
-  .brand span{color:var(--accent)}
-  .navlinks{display:flex;gap:18px;flex-wrap:wrap;font-size:.92rem}
-  .navlinks a{color:var(--muted);font-weight:500}
-  .navlinks a:hover{color:var(--accent);text-decoration:none}
+  nav { display: flex; justify-content: space-between; align-items: center; padding: 16px 0; }
+  .brand { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.2rem; color: #fff; letter-spacing: 1px; }
+  .navlinks { display: flex; gap: 20px; }
+  .navlinks a { color: var(--muted); font-size: 0.9rem; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; }
+  .navlinks a:hover { color: var(--neon); text-decoration: none; }
 
-  /* Hero */
-  .hero{padding:64px 0 48px;border-bottom:1px solid var(--line)}
-  .eyebrow{color:var(--accent);font-weight:600;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px}
-  h1{font-family:'Source Serif 4',serif;font-size:clamp(2rem,5vw,3rem);line-height:1.15;font-weight:700;letter-spacing:-.01em}
-  .role{margin-top:10px;font-size:1.12rem;color:var(--muted);font-weight:500}
-  .bio{margin-top:22px;max-width:640px;color:#324139}
-  .contact{display:flex;flex-wrap:wrap;gap:10px 16px;margin-top:26px;font-size:.95rem}
-  .contact a{display:inline-flex;align-items:center;gap:6px;font-weight:500}
-  .pill{display:inline-block;background:var(--accent-soft);color:var(--accent);border-radius:999px;padding:4px 12px;font-size:.8rem;font-weight:600;margin-top:20px}
+  /* --- CINEMATIC HERO (Video Background) --- */
+  .hero {
+    position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center;
+    padding: 140px 20px 80px; overflow: hidden;
+  }
+  /* The Video */
+  .hero-video {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0;
+    opacity: 0.6;
+  }
+  /* The Dark Gradient Overlay */
+  .hero-overlay {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;
+    background: linear-gradient(180deg, rgba(6, 11, 9, 0.5) 0%, rgba(6, 11, 9, 0.95) 85%, var(--bg) 100%);
+  }
+  /* The Content */
+  .hero-content {
+    position: relative; z-index: 2; text-align: center; max-width: 850px;
+    animation: fadeUp 1.5s ease-out;
+  }
+  .eyebrow { color: var(--neon); font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1rem; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 16px; text-shadow: var(--glow); }
+  h1 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(2.5rem, 6vw, 4.5rem); line-height: 1.1; color: #fff; letter-spacing: -1px; margin-bottom: 10px; }
+  
+  .affiliation { 
+    font-size: 0.95rem; color: var(--cyan); font-weight: 500; margin-bottom: 20px; 
+    line-height: 1.5; background: rgba(0, 210, 255, 0.05); padding: 10px 20px; border-radius: 8px; display: inline-block;
+    border: 1px solid rgba(0, 210, 255, 0.2);
+  }
+  .bio { font-size: 1.1rem; color: #b0c4ba; margin: 0 auto 30px; max-width: 650px; }
 
-  /* Sections */
-  section{padding:48px 0;border-bottom:1px solid var(--line)}
-  section:last-of-type{border-bottom:none}
-  h2{font-family:'Source Serif 4',serif;font-size:1.5rem;font-weight:700;margin-bottom:24px;display:flex;align-items:center;gap:12px}
-  h2::before{content:"";width:26px;height:3px;background:var(--accent);border-radius:2px;flex:none}
-  .lead{color:#324139;max-width:680px;margin-bottom:8px}
+  /* --- BUTTONS --- */
+  .btn-group { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 8px; font-weight: 600; font-size: 1rem;
+    transition: all 0.3s ease; border: 1px solid transparent;
+  }
+  .btn-primary {
+    background: var(--neon); color: #000; box-shadow: 0 0 15px rgba(0, 255, 136, 0.4);
+  }
+  .btn-primary:hover {
+    transform: translateY(-2px); box-shadow: 0 0 25px rgba(0, 255, 136, 0.8); text-decoration: none; color: #000;
+  }
+  .btn-secondary {
+    background: rgba(255,255,255,0.05); color: #fff; border: 1px solid var(--line); backdrop-filter: blur(5px);
+  }
+  .btn-secondary:hover {
+    background: rgba(0, 210, 255, 0.1); border-color: var(--cyan); color: var(--cyan); text-decoration: none; transform: translateY(-2px);
+  }
 
-  /* Cards */
-  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px 22px;margin-bottom:14px;transition:.18s ease}
-  .card:hover{border-color:#cfe0d7;box-shadow:0 6px 22px rgba(31,107,74,.06)}
-  .card h3{font-size:1.02rem;font-weight:600;line-height:1.4;margin-bottom:6px}
-  .card .meta{font-size:.86rem;color:var(--muted);margin-bottom:8px}
-  .card p{font-size:.94rem;color:#3a4a42}
+  /* --- SECTIONS --- */
+  section { padding: 80px 0; }
+  h2 { 
+    font-family: 'Space Grotesk', sans-serif; font-size: 2rem; margin-bottom: 40px; 
+    display: flex; align-items: center; gap: 16px; color: #fff;
+  }
+  h2::before { content: ""; width: 40px; height: 4px; background: var(--neon); box-shadow: var(--glow); border-radius: 2px; }
 
-  /* Lists */
-  ul.clean{list-style:none;margin-top:6px}
-  ul.clean li{position:relative;padding-left:20px;margin-bottom:8px;font-size:.94rem;color:#3a4a42}
-  ul.clean li::before{content:"";position:absolute;left:0;top:.62em;width:7px;height:7px;border-radius:50%;background:var(--accent)}
+  /* --- CARDS (Glassmorphism) --- */
+  .card {
+    background: rgba(13, 23, 19, 0.6); border: 1px solid var(--line); border-radius: 12px; padding: 28px;
+    margin-bottom: 20px; backdrop-filter: blur(10px); transition: 0.4s ease; position: relative; overflow: hidden;
+  }
+  .card::before {
+    content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 2px;
+    background: linear-gradient(90deg, transparent, var(--cyan), transparent); opacity: 0; transition: 0.4s;
+  }
+  .card:hover {
+    transform: translateY(-5px); border-color: rgba(0, 210, 255, 0.3); box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  }
+  .card:hover::before { opacity: 1; }
+  
+  .card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1.2rem; color: #fff; margin-bottom: 8px; }
+  .card .meta { font-size: 0.85rem; color: var(--neon); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 14px; }
+  .card p { color: var(--muted); font-size: 0.95rem; }
 
-  /* Grids */
-  .grid{display:grid;gap:14px}
-  @media(min-width:640px){.grid.two{grid-template-columns:1fr 1fr}}
+  /* Grid */
+  .grid { display: grid; gap: 20px; }
+  @media(min-width: 768px) { .grid.two { grid-template-columns: 1fr 1fr; } }
 
-  /* Tags */
-  .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
-  .tag{background:#f1f5f2;border:1px solid var(--line);border-radius:8px;padding:5px 11px;font-size:.82rem;color:#2f463b;font-weight:500}
+  /* --- EDUCATION LIST --- */
+  .edu-list { border-left: 2px solid var(--line); padding-left: 24px; margin-left: 10px; }
+  .edu-item { position: relative; margin-bottom: 30px; }
+  .edu-item::before {
+    content: ""; position: absolute; left: -32px; top: 4px; width: 14px; height: 14px;
+    border-radius: 50%; background: var(--bg); border: 3px solid var(--neon); box-shadow: var(--glow);
+  }
+  .edu-item b { display: block; color: #fff; font-size: 1.1rem; margin-bottom: 4px; }
+  .edu-item span { color: var(--muted); font-size: 0.9rem; }
+  .edu-item .gpa { color: var(--cyan); font-weight: 600; display: inline-block; margin-top: 6px; background: rgba(0,210,255,0.1); padding: 2px 8px; border-radius: 4px; font-size: 0.8rem;}
 
-  /* Education rows */
-  .edu{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px dashed var(--line);flex-wrap:wrap}
-  .edu:last-child{border-bottom:none}
-  .edu .left b{display:block;font-size:.98rem}
-  .edu .left span{font-size:.88rem;color:var(--muted)}
-  .edu .right{font-size:.84rem;color:var(--accent);font-weight:600;white-space:nowrap}
+  /* --- SKILL TAGS --- */
+  .tags { display: flex; flex-wrap: wrap; gap: 10px; }
+  .tag {
+    background: rgba(0, 255, 136, 0.05); border: 1px solid rgba(0, 255, 136, 0.2); color: var(--ink);
+    padding: 8px 16px; border-radius: 30px; font-size: 0.9rem; transition: 0.3s;
+  }
+  .tag:hover { background: rgba(0, 255, 136, 0.15); border-color: var(--neon); transform: scale(1.05); }
 
-  /* Footer */
-  footer{padding:36px 0;text-align:center;color:var(--muted);font-size:.86rem}
-  footer a{color:var(--accent)}
+  /* --- CONTACT SECTION --- */
+  .contact-details { display: flex; flex-direction: column; gap: 16px; align-items: flex-start; margin-top: 20px; text-align: left; }
+  .contact-item { display: flex; align-items: flex-start; gap: 12px; font-size: 1.05rem; color: var(--ink); }
+  .contact-item .icon { font-size: 1.2rem; }
 
-  /* Back to top */
-  .totop{position:fixed;right:20px;bottom:20px;background:var(--accent);color:#fff;width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;box-shadow:0 6px 18px rgba(31,107,74,.3);opacity:0;pointer-events:none;transition:.25s}
-  .totop.show{opacity:1;pointer-events:auto}
-  .totop:hover{text-decoration:none;transform:translateY(-2px)}
+  /* --- FOOTER --- */
+  footer { padding: 40px 0; text-align: center; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.9rem; }
+
+  /* Animations */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 600px) {
+    .navlinks { display: none; } /* Hide nav on mobile for cinematic look */
+    h1 { font-size: 2.5rem; }
+  }
 </style>
 </head>
 <body>
@@ -106,136 +175,131 @@
 <header>
   <div class="wrap">
     <nav>
-      <div class="brand">Salman Khan <span>Abir</span></div>
+      <div class="brand">SALMAN KHAN</div>
       <div class="navlinks">
-        <a href="#about">About</a>
         <a href="#research">Research</a>
-        <a href="#leadership">Leadership</a>
+        <a href="#experience">Experience</a>
         <a href="#education">Education</a>
-        <a href="#skills">Skills</a>
         <a href="#contact">Contact</a>
       </div>
     </nav>
   </div>
 </header>
 
-<main class="wrap">
+<!-- CINEMATIC HERO SECTION -->
+<div class="hero" id="about">
+  <!-- YOUR VIDEO IS LINKED HERE -->
+  <video autoplay loop muted playsinline class="hero-video">
+    <source src="a_manly_walk_video_e7bc8bdb.mp4" type="video/mp4">
+  </video>
+  
+  <div class="hero-overlay"></div>
 
-  <!-- HERO -->
-  <div class="hero" id="about">
+  <div class="hero-content">
     <div class="eyebrow">Junior Researcher</div>
     <h1>Salman Khan</h1>
-    <div class="role">Agricultural Biotechnology &amp; Microbial Genomics</div>
-    <p class="bio">
-      B.Sc. student in Biotechnology and Genetic Engineering at Islamic University, Kushtia, Bangladesh,
-      working across the Agricultural Biotechnology and Microbial Genomics Laboratory (ABMGL) and the
-      Agricultural &amp; Environmental Biotechnology Laboratory (AEBL). My research focuses on
-      plant–microbe interactions, biofertilizer and biofilm formulations, and the antimicrobial
-      properties of plant-derived extracts.
-    </p>
-    <div class="contact">
-      <a href="mailto:salmankhanbtge@gmail.com">✉ salmankhanbtge@gmail.com</a>
-      <a href="https://scholar.google.com/citations?user=U-VBxeQAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
-      <a href="https://www.researchgate.net/profile/Salman-Khan-299" target="_blank" rel="noopener">ResearchGate</a>
-      <a href="https://shrturl.app/Ejig_Q" target="_blank" rel="noopener">LinkedIn</a>
+    
+    <div class="affiliation">
+      Agricultural Biotechnology and Microbial Genomics Laboratory (ABMGL)<br>
+      Agricultural &amp; Environmental Biotechnology Laboratory (AEBL)<br>
+      Faculty of Biological Sciences, Applied Science &amp; Technology Building<br>
+      Islamic University, Kushtia-7003, Bangladesh.
     </div>
-    <div class="pill">Open to research collaboration</div>
+
+    <p class="bio">
+      B.Sc. student at Islamic University, Kushtia. I explore plant–microbe interactions, 
+      biofertilizer formulations, and the antimicrobial properties of plant-derived extracts.
+    </p>
+    <div class="btn-group">
+      <a href="mailto:salmankhanbtge@gmail.com" class="btn btn-primary">Get in Touch</a>
+      <a href="https://scholar.google.com/citations?user=U-VBxeQAAAAJ&hl=en" target="_blank" class="btn btn-secondary">Google Scholar</a>
+    </div>
   </div>
+</div>
+
+<main class="wrap">
 
   <!-- RESEARCH -->
   <section id="research">
-    <h2>Research</h2>
-    <p class="lead">Co-authored publications and ongoing projects in agricultural and environmental biotechnology.</p>
+    <h2>Research &amp; Publications</h2>
 
-    <h3 style="font-size:1rem;margin:22px 0 12px;color:var(--accent)">Publications (Co-author)</h3>
-
+    <h3 style="color: var(--muted); margin-bottom: 20px; font-weight: 500; font-size: 1.1rem;">Co-authored Publications</h3>
+    
     <div class="card">
-      <h3>Plant-Derived Aqueous Extracts as Bio-Inputs to Improve Rhizosphere Soil Health and Crop Performance in <em>Oryza sativa</em></h3>
-      <div class="meta">Co-author · Publication</div>
-      <p><a href="https://tinyurl.com/4227cppb" target="_blank" rel="noopener">View publication →</a></p>
+      <h3>Plant-Derived Aqueous Extracts as Bio-Inputs in <em>Oryza sativa</em></h3>
+      <div class="meta">Co-author</div>
+      <p>Improving Rhizosphere Soil Health and Crop Performance. <br><a href="https://tinyurl.com/4227cppb" target="_blank">Read Publication →</a></p>
     </div>
 
     <div class="card">
-      <h3>Harnessing Phytate for Phosphorus Security: Integrating Microbial and Genetic Innovations</h3>
-      <div class="meta">Co-author · Publication</div>
-      <p><a href="https://tinyurl.com/bkrkc7zr" target="_blank" rel="noopener">View publication →</a></p>
+      <h3>Harnessing Phytate for Phosphorus Security</h3>
+      <div class="meta">Co-author</div>
+      <p>Integrating Microbial and Genetic Innovations. <br><a href="https://tinyurl.com/bkrkc7zr" target="_blank">Read Publication →</a></p>
     </div>
 
     <div class="card">
-      <h3>Regulatory Role of Plant-Based Biostimulants in Chlorophyll Biosynthesis and Endogenous Hormone Regulation in Plants</h3>
-      <div class="meta">Co-author · Publication</div>
-      <p><a href="https://tinyurl.com/yp5b2ma8" target="_blank" rel="noopener">View publication →</a></p>
+      <h3>Regulatory Role of Plant-Based Biostimulants</h3>
+      <div class="meta">Co-author</div>
+      <p>Chlorophyll Biosynthesis and Endogenous Hormone Regulation in Plants. <br><a href="https://tinyurl.com/yp5b2ma8" target="_blank">Read Publication →</a></p>
     </div>
 
-    <h3 style="font-size:1rem;margin:26px 0 12px;color:var(--accent)">Ongoing Projects</h3>
+    <h3 style="color: var(--muted); margin: 40px 0 20px; font-weight: 500; font-size: 1.1rem;">Ongoing Projects</h3>
     <div class="grid two">
       <div class="card">
-        <h3>Biofilm Formation &amp; Biofertilizer Applications</h3>
+        <h3>Biofilm &amp; Biofertilizers</h3>
         <p>Investigating biofilm formation and its application in biofertilizer systems.</p>
       </div>
       <div class="card">
         <h3>Antibiotic Properties of <em>Acalypha indica</em></h3>
-        <p>Evaluating the antimicrobial properties of <em>Acalypha indica</em> plant extracts.</p>
+        <p>Evaluating the antimicrobial properties of native plant extracts.</p>
       </div>
       <div class="card">
-        <h3>Microbial Isolation &amp; Sensitivity Testing</h3>
+        <h3>Microbial Isolation</h3>
         <p>Isolating microbes from food samples and testing antibiotic sensitivity.</p>
       </div>
       <div class="card">
-        <h3>Biofilm Biofertilizer for Climate-Affected Soils</h3>
-        <p>Developing biofilm biofertilizer formulations for high-salt and drought-prone agricultural soils.</p>
+        <h3>Climate-Resilient Agriculture</h3>
+        <p>Developing biofilm formulations for high-salt and drought-prone soils.</p>
       </div>
     </div>
   </section>
 
-  <!-- LEADERSHIP -->
-  <section id="leadership">
-    <h2>Leadership &amp; Organisational Experience</h2>
+  <!-- LEADERSHIP & EXPERIENCE -->
+  <section id="experience">
+    <h2>Leadership &amp; Experience</h2>
 
     <div class="card">
       <h3>Global Graphics Designer — IAAS</h3>
       <div class="meta">Oct 2025 – Present</div>
-      <p>Designing global promotional materials and campaign visuals; creating social media templates for IAAS chapters worldwide.</p>
+      <p>Designed global promotional materials and campaign visuals for IAAS chapters worldwide.</p>
     </div>
 
     <div class="card">
-      <h3>Vice Director of Communication — IAAS Bangladesh, Islamic University</h3>
+      <h3>Vice Director of Communication — IAAS Bangladesh IU</h3>
       <div class="meta">Jun 2024 – Present</div>
-      <p>Leading communication and networking for local and national collaborations; managing social media campaigns and global engagement; organized the World Food Day 2024 Photography Contest and recruitment drives.</p>
-    </div>
-
-    <div class="card">
-      <h3>Communication Secretary — Islamic University Science Club (IUSC)</h3>
-      <div class="meta">Sept 2025 – Present</div>
-      <p>Leading internal and external communication; strengthening collaboration with other university clubs and organizations.</p>
-    </div>
-
-    <div class="card">
-      <h3>Founding Member &amp; President — Noboproyash</h3>
-      <div class="meta">Sept 2025 – Present</div>
-      <p>Drafted and revised the organizational constitution; organized quiz competitions and SSC students' felicitation programs; supported publicity, communication and event management.</p>
+      <p>Led communication and networking for local and national collaborations. Organized the World Food Day 2024 Photography Contest.</p>
     </div>
 
     <div class="grid two">
       <div class="card">
-        <h3>Executive Board &amp; Committee Member — IAAS Bangladesh IU</h3>
-        <div class="meta">2024 – 2025</div>
-        <p>Coordinated the General Member Recruitment 2024 campaign; facilitated monthly EB/CB/QB meetings.</p>
+        <h3>Communication Secretary — IUSC</h3>
+        <div class="meta">Sept 2025 – Present</div>
+        <p>Led internal/external communication and strengthened collaborations with other clubs.</p>
+      </div>
+      <div class="card">
+        <h3>Founding President — Noboproyash</h3>
+        <div class="meta">Sept 2025 – Present</div>
+        <p>Drafted the organizational constitution and organized youth development and felicitation programs.</p>
       </div>
       <div class="card">
         <h3>Executive Member — ASM IU Chapter</h3>
         <div class="meta">2024 – 2025</div>
-        <p>Supported academic and professional networking under the American Society for Microbiology student chapter.</p>
+        <p>Supported academic networking and contributed to seminar organization under the American Society for Microbiology.</p>
       </div>
       <div class="card">
-        <h3>Joint Photography &amp; Media Secretary — IUSC</h3>
-        <div class="meta">2024 – 2025</div>
-        <p>Managed photography, videography and media coverage of science events; created digital outreach content.</p>
-      </div>
-      <div class="card">
-        <h3>Design &amp; Creative Associate — IAAS Bangladesh IU</h3>
+        <h3>Design &amp; Creative Associate</h3>
         <div class="meta">2023 – Present</div>
-        <p>Certified in designing; contributes graphics and promotional design for IAAS IU and IUSC events and publications.</p>
+        <p>Completed a certified designing course and contributes promotional graphics for university events.</p>
       </div>
     </div>
   </section>
@@ -243,91 +307,95 @@
   <!-- EDUCATION -->
   <section id="education">
     <h2>Education</h2>
-    <div class="edu">
-      <div class="left">
+    <div class="edu-list">
+      <div class="edu-item">
         <b>B.Sc. in Biotechnology and Genetic Engineering</b>
-        <span>Islamic University, Kushtia, Bangladesh · Session 2021–2022 · 2023 – Present</span>
+        <span>Islamic University, Kushtia · Session 2021–2022 · 2023 – Present</span>
+        <div class="gpa">Currently 3rd Year</div>
       </div>
-      <div class="right">3rd Year</div>
-    </div>
-    <div class="edu">
-      <div class="left">
+      <div class="edu-item">
         <b>Higher Secondary Certificate (HSC) — Science</b>
-        <span>Rajshahi Govt. City College, Rajshahi · Board: Rajshahi · 2020</span>
+        <span>Rajshahi Govt. City College · Board: Rajshahi · 2020</span>
+        <div class="gpa">GPA 5.00 / 5.00</div>
       </div>
-      <div class="right">GPA 5.00 / 5.00</div>
-    </div>
-    <div class="edu">
-      <div class="left">
+      <div class="edu-item">
         <b>Secondary School Certificate (SSC) — Science</b>
-        <span>Bahalbaria Secondary School, Mirpur, Kushtia · Board: Jashore · 2018</span>
+        <span>Bahalbaria Secondary School, Mirpur · Board: Jashore · 2018</span>
+        <div class="gpa">GPA 5.00 / 5.00</div>
       </div>
-      <div class="right">GPA 5.00 / 5.00</div>
     </div>
   </section>
 
   <!-- SKILLS -->
   <section id="skills">
     <h2>Skills &amp; Techniques</h2>
-
-    <p class="lead" style="margin-bottom:14px"><b>Laboratory &amp; Research</b></p>
-    <div class="tags">
+    
+    <p style="margin-bottom: 16px; color: var(--muted);">Laboratory &amp; Research</p>
+    <div class="tags" style="margin-bottom: 30px;">
       <span class="tag">Microbiology</span>
       <span class="tag">Molecular Biology</span>
       <span class="tag">Plant Tissue Culture</span>
       <span class="tag">Microbial Isolation</span>
-      <span class="tag">Antibiotic Sensitivity Testing</span>
-      <span class="tag">Biofilm Studies</span>
+      <span class="tag">Antibiotic Sensitivity</span>
       <span class="tag">Plant Breeding</span>
       <span class="tag">Biochemistry</span>
       <span class="tag">Immunology</span>
-      <span class="tag">Enzymology</span>
     </div>
 
-    <p class="lead" style="margin:22px 0 14px"><b>Professional &amp; Communication</b></p>
+    <p style="margin-bottom: 16px; color: var(--muted);">Professional</p>
     <div class="tags">
       <span class="tag">Scientific Writing</span>
       <span class="tag">Graphic Design</span>
-      <span class="tag">Social Media Strategy</span>
       <span class="tag">Event Organization</span>
       <span class="tag">Public Communication</span>
       <span class="tag">Teaching &amp; Tutoring</span>
-      <span class="tag">IT Training</span>
     </div>
   </section>
 
   <!-- CONTACT -->
   <section id="contact">
     <h2>Contact</h2>
-    <p class="lead">I'm open to research collaborations, internships, and academic opportunities. Feel free to reach out.</p>
-    <div class="contact" style="margin-top:18px;font-size:1rem">
-      <a href="mailto:salmankhanbtge@gmail.com">✉ salmankhanbtge@gmail.com</a>
-      <a href="https://scholar.google.com/citations?user=U-VBxeQAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
-      <a href="https://www.researchgate.net/profile/Salman-Khan-299" target="_blank" rel="noopener">ResearchGate</a>
-      <a href="https://shrturl.app/Ejig_Q" target="_blank" rel="noopener">LinkedIn</a>
+    <div class="card" style="padding: 40px 30px;">
+      
+      <div class="contact-details">
+        <div class="contact-item">
+          <span class="icon">📍</span> 
+          <div><b>Address:</b> Islamic University, Kushtia-7003, Bangladesh.</div>
+        </div>
+        
+        <div class="contact-item">
+          <span class="icon">📧</span> 
+          <div>
+            <b>Email:</b> <a href="mailto:salmankhanbtge@gmail.com">salmankhanbtge@gmail.com</a> <br>
+            <span style="color: var(--muted); font-size: 0.9rem;">(Alt: <a href="mailto:salmankhanabir31@std.iu.ac.bd">salmankhanabir31@std.iu.ac.bd</a>)</span>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <span class="icon">📱</span> 
+          <div><b>Cell:</b> +880 1746380686</div>
+        </div>
+      </div>
+
+      <hr style="border: 0; border-top: 1px solid var(--line); margin: 30px 0;">
+
+      <h3 style="margin-bottom: 16px; text-align: left;">Connect Online</h3>
+      <div class="btn-group" style="justify-content: flex-start;">
+        <a href="https://scholar.google.com/citations?user=U-VBxeQAAAAJ&hl=en" target="_blank" class="btn btn-secondary">📖 Google Scholar</a>
+        <a href="https://www.researchgate.net/profile/Salman-Khan-299?ev=hdr_xprf" target="_blank" class="btn btn-secondary">🔬 ResearchGate</a>
+        <a href="https://shrturl.app/Ejig_Q" target="_blank" class="btn btn-secondary">🌐 LinkedIn</a>
+      </div>
+
     </div>
-    <p style="margin-top:16px;font-size:.86rem;color:var(--muted)">
-      Agricultural Biotechnology and Microbial Genomics Laboratory (ABMGL)<br>
-      Faculty of Biological Sciences, Islamic University, Kushtia-7003, Bangladesh
-    </p>
   </section>
 
 </main>
 
 <footer>
   <div class="wrap">
-    © <span id="year"></span> Salman Khan Abir · Built with a single HTML file.
+    © 2026 Salman Khan Abir. All rights reserved.
   </div>
 </footer>
 
-<a href="#" class="totop" id="totop" aria-label="Back to top">↑</a>
-
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-  const tt = document.getElementById('totop');
-  window.addEventListener('scroll', () => {
-    tt.classList.toggle('show', window.scrollY > 400);
-  });
-</script>
 </body>
 </html>
